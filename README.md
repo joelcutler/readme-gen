@@ -2,7 +2,7 @@
 
 ## Walkthrough Video
 
-[Watch Video Here](https://github.com/joelcutler/readme-gen)
+[Watch Video Here](https://drive.google.com/file/d/1dW8DA17KoitQcKzK-yZT_3NBU2IFidF3/view)
 
 ## Table of Contents:
 
