@@ -1,5 +1,9 @@
 # README Generator
 
+## Walkthrough Video
+
+[Watch Video Here](https://github.com/joelcutler/readme-gen)
+
 ## Table of Contents:
 
 - [Author](#author)
