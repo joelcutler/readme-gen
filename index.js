@@ -89,7 +89,7 @@ return inquirer.prompt([
       type: 'list',
       name: 'licensing',
       message: "What kind of license does your project need?",
-      choices: ["MIT", "GNU GPLv3", "none"],
+      choices: ["MIT", "Boost", "Apache", "None"],
       validate: licensingInput => {
         if (licensingInput) {
           return true;
@@ -102,7 +102,7 @@ return inquirer.prompt([
 ])
 
     .then(({ author, github, title, repo, description, install, licensing }) => {
-        readmeInfo.push(author, github, title, repo, description, install, licensing);
+        readmeInfo.push({author, github, title, repo, description, install, licensing});
         console.log(readmeInfo);
         createMarkdown()
       })
@@ -111,17 +111,22 @@ return inquirer.prompt([
 
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
-const createMarkdown = (readmeInfoPlaceholder) => {
-    const markdown = generateMarkdown(readmeInfoPlaceholder);
+const createMarkdown = () => {
+    const markdown = generateMarkdown(readmeInfo);
     fs.writeFile("./generatedREADME.md", markdown, function (err) {
-      if (err) throw err;
-      console.log("generatedREADME.md file generated");
-    });
-  };
+    if (err) {
+        console.log(err);
+        return
+    } else {
+        console.log("generatedREADME.md file has been generated!")
+    }
+  })
+}
 
 // TODO: Create a function to initialize app
 function initApp() {
-    questions();
-}
+questions();
+};
+
 // Function call to initialize app
 initApp();
